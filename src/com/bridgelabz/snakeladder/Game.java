@@ -19,12 +19,13 @@ public class Game {
 
     public static void playgame() {
         Scanner scanner = new Scanner(System.in);
-        int position = 0, diceVal = 0;
+        int position = 0, diceVal = 0,no_of_die = 0;
         System.out.println("Initial Position = " + position);
         System.out.println("Enter (roll) to roll dice");
         String ch = scanner.nextLine();
         if (ch.equalsIgnoreCase("roll")) {
             diceVal = rolldice();
+            no_of_die++;
             System.out.println("you rolled out " + diceVal + " times");
         }
         // To Check the Option and Move Position till 100
@@ -45,6 +46,10 @@ public class Game {
                     System.out.println("U got nothing");
             }
             System.out.println("Your Current Position" + position);
+        }
+        if(position==100){
+            System.out.println("GAME WON \n");
+            System.out.println("\n No of positions took to reach : "+no_of_die);
         }
     }
 }
